@@ -1,0 +1,39 @@
+{% extends 'shop/shopindex.html' %}
+{% block body %}
+<body>
+<form action="/editproduct_post" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="200" border="1" class="table table-dark table-hover">
+    <tr>
+      <td>Product</td>
+      <td><label>
+        <input type="text" name="textfield"  value="{{ val.product }}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Price</td>
+      <td><label>
+        <input type="text" name="textfield2" value="{{ val.price }}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Stock</td>
+      <td><label>
+        <input type="text" name="textfield3" value="{{ val.stock }}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Image</td>
+      <td><label>
+        <input type="file" name="file"/>
+          <img src="{{ val.image.url }}" alt="error" width="100" height="150"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+        <input type="submit" name="Submit" value="Edit" />
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

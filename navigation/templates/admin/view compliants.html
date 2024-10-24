@@ -1,0 +1,39 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/viewcompliant_search">
+  <table width="234" border="1" class="table table-dark table-hover>
+    <tr>
+      <td colspan="5"><b>Date</b>
+        <label>
+        <input type="DATE" name="date" value="{{ val1 }}" required/>
+        <input type="submit" name="Submit" value="Search" class="btn btn-warning"/>
+      </label></td>
+    </tr>
+    <tr>
+      <th width="29">Slno</th>
+      <th width="31">User</th>
+      <th width="67">Compliant</th>
+      <th width="31">Date</th>
+      <th width="42"><p><a href="#"></a></p>
+      <p>&nbsp;</p></th>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.User.Name }}</td>
+      <td>&nbsp;{{ i.complaint }}</td>
+      <td> {{ i.date }}</td>
+        {% if i.reply == 'pending' %}
+      <td width="42"><a href="sendreply/{{ i.id }}">reply</a></td>
+      {% else %}
+        <td><p>{{ i.reply }}</p></td>
+ {% endif %}
+    </tr>
+
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

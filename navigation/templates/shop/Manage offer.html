@@ -1,0 +1,39 @@
+{% extends 'shop/shopindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/offer_search">
+  <table width="333" border="1" class="table table-dark table-hover">
+    <tr>
+      <td colspan="6"><b>Product</b>
+        <label>
+        <input type="text" name="textfield" value="{{ s }}" />
+        <input type="submit" name="Submit" value="Search" />
+      </label></td>
+    </tr>
+
+    <tr>
+      <th width="27">Slno</th>
+      <th width="63">OfferPrice</th>
+      <th width="40">Start</th>
+        <th width="40">End</th>
+      <th width="45">Product</th>
+      <th width="124">&nbsp;</th>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.offer_price }}</td>
+      <td>&nbsp;{{ i.start_date }}</td>
+      <td>&nbsp;{{ i.end_date }}</td>
+      <td>{{ i.product.product}}</td>
+      <td><p><a href="/edit_offer/{{ i.id }}">Edit</a></p>
+      <p><a href="/delete_offer/{{ i.id }}">Delete</a></p></td>
+    </tr>
+      {% endfor %}
+    <tr>
+      <td colspan="6"><a href="addoffer">Add</a></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

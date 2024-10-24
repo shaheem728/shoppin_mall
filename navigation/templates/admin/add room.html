@@ -1,0 +1,47 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="\addroom_post">
+  <table width="200" border="1" class="table table-dark table-hover">
+    <tr>
+      <th>Floor</th>
+      <td><label>
+        <input type="text" name="textfield" />
+      </label></td>
+    </tr>
+    <tr>
+      <th>Room.No </th>
+      <td><label>
+        <input type="text" name="textfield2" />
+      </label></td>
+    </tr>
+    <tr>
+      <th>Dimension</th>
+      <td><label>
+        <input type="text" name="textfield3" />
+      </label></td>
+    </tr>
+    <tr>
+      <th>Wifi</th>
+      <td><label>
+        <input type="text" name="textfield4" />
+      </label></td>
+    </tr>
+    <tr>
+      <th>Status</th>
+      <td><label>
+        <select name="select">
+            <option>Available</option>
+            <option>Not Available</option>
+        </select>
+      </label></td>
+    </tr>
+    <tr align="center">
+      <td colspan="2"><label>
+        <input type="submit" name="Submit" value="Add"  class="btn btn-outline-success"/>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

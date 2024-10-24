@@ -1,0 +1,38 @@
+{% extends 'shop/shopindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="search">
+  <table width="284" border="1" class="table table-dark table-hover">
+    <tr>
+      <td colspan="7"><b>Product</b>
+        <label>
+        <input type="date" name="textfield" required/>
+      </label>
+        <label>
+        <input type="submit" name="Submit" value="Search" />
+      </label></td>
+    </tr>
+    <tr>
+      <th width="27">Slno</th>
+      <th width="29">User</th>
+      <th width="48">Amount</th>
+      <th width="37">Status</th>
+      <th width="23">Qty</th>
+      <th width="23">Date</th>
+      <th width="80">&nbsp;</th>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.User.Name }}</td>
+      <td>&nbsp;{{ i.amount }}</td>
+      <td>&nbsp;{{ i.status }}</td>
+      <td>&nbsp;{{ i.quantity }}</td>
+      <td>{{ i.date }}</td>
+      <td><a href="viewitem/{{ i.id }}">View Items</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

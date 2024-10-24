@@ -1,0 +1,39 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/manageroom_search">
+  <table width="200" border="1" class="table table-dark table-hover">
+    <tr>
+      <td colspan="6"><b>Floor:</b>
+        <label>
+        <input type="text" name="textfield" required/>
+        <input type="submit" name="Submit" value="Search" class="btn btn-warning"/>
+      </label></td>
+    </tr>
+    <tr>
+      <th>Slno</th>
+      <th>roomno</th>
+      <th>Dimension</th>
+      <th>Wifi</th>
+      <th>Status</th>
+      <th>&nbsp;</th>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td> {{forloop.counter }}</td>
+      <td>&nbsp;{{ i.room_no }}</td>
+      <td>&nbsp;{{ i.Dimention}}</td>
+      <td>&nbsp;{{ i.Wifi}}</td>
+      <td>&nbsp;{{ i.status}}</td>
+      <td><a class="btn btn-outline-primary" href="/edit_room/{{ i.id }}">Edit</a>
+      <a class="btn btn-outline-danger" href="/delete_room/{{ i.id }}">Delete</a></td>
+    </tr>
+      {% endfor %}
+    <tr>
+      <td colspan="6" align="center"><a class="btn btn-outline-success" href="addroom">Add</a></td>
+
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

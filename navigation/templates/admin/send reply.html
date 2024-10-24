@@ -1,0 +1,31 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+<body>
+<style>
+  /* Apply your styles here */
+  input[type="text"] {
+    width: 1000px;/* Set the width as needed */
+    height: 100px;/* Set the width as needed */
+    padding: 10px; /* Adjust padding */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border-radius for rounded corners */
+    /* Add other styles as desired */
+  }
+</style>
+<form id="form1" name="form1" method="post" action="/sendreply_post">
+  <table width="200" border="1" class="table table-dark table-hover">
+    <tr>
+      <td><b>Reply</b></td>
+      <td><label>
+        <input type="text" name="textfield" />
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="right"><label>
+        <input type="submit" name="Submit" value="Send" class="btn btn-outline-success"/>
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

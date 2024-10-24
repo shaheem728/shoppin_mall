@@ -1,0 +1,42 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+<body><form id="form1" name="form1" method="post" action="/insert_root">
+<table width="200" border="1" class="table table-dark table-hover">
+  <tr>
+    <th>From</th>
+    <td><label>
+      <select name="select">
+          {% for i in val %}
+              <option value="{{ i.id }}">{{ i.room_no }} - {{ i.floor }}</option>
+          {% endfor %}
+      </select>
+    </label></td>
+  </tr>
+  <tr>
+    <th>To</th>
+    <td><label>
+      <select name="select2">
+           {% for i in val %}
+              <option value="{{ i.id }}">{{ i.room_no }} - {{ i.floor }}</option>
+          {% endfor %}
+      </select>
+    </label></td>
+  </tr>
+  <tr>
+    <th>Route</th>
+    <td>
+      <label>
+        <input type="text" name="textfield" />
+        </label>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2">
+      <label>
+      <input type="submit" name="Submit" value="Add" class="btn btn-outline-success" />
+      </label>
+    </td>
+  </tr>
+</table> </form>
+</body>
+{% endblock %}

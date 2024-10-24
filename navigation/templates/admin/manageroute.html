@@ -1,0 +1,30 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="addroute_post">
+  <table width="200" border="1" class="table table-dark table-hover">
+    <tr>
+      <th>Slno</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Route</th>
+      <th>&nbsp;</th>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.from_id.room_no }} - {{ i.from_id.floor }}</td>
+      <td>&nbsp;{{ i.to_id.room_no }} - {{ i.to_id.floor }}</td>
+      <td>&nbsp;{{ i.route }}</td>
+      <td><a class="btn btn-outline-primary" href="/edit_route/{{ i.id }}">Edit</a>
+          <a class="btn btn-outline-danger" href="/delete_route/{{ i.id }}">Delete</a></td>
+    </tr>
+      {% endfor %}
+    <tr>
+      <td colspan="5"><div align="center"><a class="btn btn-outline-success" href="/addroute">Add</a></div></td>
+
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

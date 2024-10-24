@@ -1,0 +1,27 @@
+{% extends 'shop/shopindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1" class="table table-dark table-hover">
+    <tr>
+      <td>Slno</td>
+      <td>Product</td>
+      <td>quantity</td>
+      <td>price</td>
+      <td>date</td>
+      <td>status</td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>{{ i.product.product }}</td>
+      <td>&nbsp;{{ i.quantity }}</td>
+      <td>&nbsp;{{ i.amount }}</td>
+      <td>{{ i.date }}</td>
+      <td> {{ i.status }}</td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}

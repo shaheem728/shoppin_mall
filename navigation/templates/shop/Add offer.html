@@ -1,0 +1,44 @@
+{% extends 'shop/shopindex.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/addoffers_post">
+  <table width="200" border="1" class="table table-dark table-hover">
+    <tr>
+      <td>Product</td>
+      <td><label>
+        <select name="select">
+            {% for i in val %}
+                <option value="{{ i.id }}">{{ i.product }}</option>
+            {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Offer price </td>
+      <td><label>
+        <input type="text" name="textfield" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Start Date </td>
+      <td><label>
+                <input type="date" name="date" />
+
+      </label></td>
+    </tr>
+    <tr>
+      <td>End Date </td>
+      <td><label>
+               <input type="date" name="date" />
+
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+        <input type="submit" name="Submit" value="Add" />
+      </label></td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}

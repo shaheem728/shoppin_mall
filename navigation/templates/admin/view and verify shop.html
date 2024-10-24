@@ -1,0 +1,50 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+
+<body>
+<form id="form1" name="form1" method="post" action="/verifyshop_search">
+  <table width="388" border="1" class="table table-dark table-hover">
+    <tr>
+      <td colspan="9"><b>SHOP</b>
+        <label>
+        <input type="text" name="textfield" value="{{ val1 }}"/>
+        <input type="submit" name="Submit" value="Search" class="btn btn-warning"/>
+      </label></td>
+    </tr>
+    <tr>
+      <th width="27">Slno</th>
+      <th width="32">Shop</th>
+      <th width="32">Image</th>
+      <th width="42">Owner</th>
+      <th width="41">Details</th>
+      <th width="38">Phone</th>
+      <th width="33">Email</th>
+      <th width="37">Room</th>
+      <td width="86"><p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </td>
+    </tr>
+      {% for i in val %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td align="center"><b>{{ i.Name }} </b></td>
+      <td><img src="{{ i.Photo.url }}" alt="image not found" style="width: 120px; height: 100px;"></td>
+      <td>&nbsp;{{ i.owner }}</td>
+      <td>{{ i.Details }}</td>
+      <td>&nbsp;{{ i.Phone}}</td>
+      <td>{{ i.Email }}</td>
+      <td>&nbsp;{{ i.room_id.room_no}}</td>
+        {% if i.login.type == "pending" %}
+      <td width="86"><p><a class="btn btn-outline-primary" href="accept_shop/{{ i.id }}">Accept</a></p>
+      <p><a class="btn btn-outline-danger" href="reject_shop/{{ i.id }}">Reject</a></p></td>
+        {% elif  i.login.type == "shop" %}
+            <td><p><font color="green">Accepted</font></p></td>
+        {% elif i.login.type == "reject" %}
+        <td><p><font color="red">Rejected</font></p></td>
+      {% endif %}
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
